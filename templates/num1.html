@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    {% block title %}<title>Home Page</title>{% endblock %}
+  </head>
+  <body>
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #b3b3b3; overflow-x:hidden; width: 100%">
+  <div class="container">
+    <a class="navbar-brand" href="#" >WOOF</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{{url_for('about')}}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href={{url_for('img')}} name="img">Images</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  <br>
+  <br>
+  {% block content %}
+    <h3 align="center">Details of some dog breeds!!!</h3>
+  <table class="table" style="overscroll-behavior: auto">
+  <thead class="table-dark">
+    <tr>
+        <th scope="col">S:NO</th>
+        <th scope="col">Breed</th>
+        <th scope="col">Category</th>
+        <th scope="col">Life Span</th>
+        <th scope="col">Origin</th>
+        <th scope="col">View Details</th>
+    </tr>
+  </thead>
+  <tbody style="background-color: #efefef;">
+  {% for i in items %}
+    <tr>
+      <td>{{i.id}}</td>
+      <td>{{i.name}}</td>
+      <td>{{i.cat}}</td>
+      <td>{{i.ls}}</td>
+      <td>{{i.origin}}</td>
+      <td>
+        <button class="btn btn-outline btn-info">More Info</button>
+        <button class="btn btn-outline btn-success">Images</button>
+      </td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+  {% endblock %}
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+    -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-bottom" style="background-color: #b3b3b3; height: 60px;">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"></a>
+    <img src="static/choc/insta.png" width="30" height="24" class="i1">
+    <img src="static/choc/ff.png" width="30" height="24" class="i2">
+    <img src="static/choc/twitter.png" width="30" height="24" class="i3">
+      <h6 style="margin-right: 100px; width: 100%;" class="cr">
+          Copyright @2021
+      </h6>
+  </div>
+</nav>
+  </body>
+  <style>
+  body {
+  background : #000000;
+  color : #e5e5e5;
+  }
+  .cr{
+      position: absolute;
+    margin-left: 41%;
+      bottom: 2px;
+      color: black;
+  }
+  .i1{
+  position: absolute;
+    margin-left: 35%;
+      clip-path: circle();
+      bottom: 29px;
+
+  }
+  .i2{
+  position: absolute;
+  margin-left: 45%;
+      clip-path: circle();
+      bottom: 29px;
+  }
+  .i3{
+  position: absolute;
+  margin-left: 55%;
+      clip-path: circle();
+      bottom: 29px;
+  }
+  .navbar-custom{
+  height: 35px;
+  }
+</style>
+</html>
